@@ -1,0 +1,23 @@
+{
+  "images" : [
+    {
+      "filename" : "abundance-agriculture-bananas-batch-264537.jpg",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "filename" : "abundance-agriculture-bananas-batch-264537@2x.jpg",
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "filename" : "abundance-agriculture-bananas-batch-264537@3x.jpg",
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
