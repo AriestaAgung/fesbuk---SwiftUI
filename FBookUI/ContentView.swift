@@ -41,9 +41,14 @@ struct ContentView: View {
     ]
     
     var body: some View {
-        NavigationView{
+        VStack{
+            if #available(iOS 14.0, *) {
+                HeaderView()
+            } else {
+                // Fallback on earlier versions
+            }
             List{
-                Section {
+                Section{
                     //Make Status Rows
                     MakePost()
                 }
@@ -59,21 +64,16 @@ struct ContentView: View {
                             }
                         }
                     }
-//                    .padding(5)
                     .frame(height:150)
-                    
                 }
-                
                 //post Rows
                 ForEach(posts, id: \.id){ post in
                     postRow(post: post)
                 }
-                
                 //Like Comment Share Rows
                 
             }
-            
-        }.navigationBarTitle("fesbuk")
+        }
     }
 }
 
@@ -101,6 +101,7 @@ struct AddStoryOverlay: View{
             .clipShape(Circle())
             .padding(5)
             .offset(x: 0, y: -25)
+            .font(.system(size: 16).weight(.medium))
             Text("Create Story")
                 .font(.system(size: 12).weight(.medium))
                 .padding(5)
@@ -114,15 +115,28 @@ struct AddStoryOverlay: View{
 
 
 
+@available(iOS 14.0, *)
 struct HeaderView: View{
     var body: some View{
-        HStack(spacing: 0){
-            Text("fesbuk")
-                .foregroundColor(.blue)
-                .frame(height: 15, alignment: .topLeading)
+        //- TODO: Create facebook current header
+        
+        LazyVGrid(columns: [GridItem(.fixed(100), alignment: .leading), GridItem(.flexible(minimum: 150, maximum: 200))]){
             
         }
-        .frame(height: 15)
+        HStack{
+        
+            Text("fesbuk")
+                .foregroundColor(.blue)
+                .font(.headline)
+                .frame(alignment: .leading)
+            HStack{
+                Button("p"){}
+                .foregroundColor(Color.gray)
+                .clipShape(Circle())
+            }
+            .frame(alignment: .trailing)
+        }
+        .frame(height: 25)
     }
 }
 
