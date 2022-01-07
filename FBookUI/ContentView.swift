@@ -93,7 +93,14 @@ struct AddStoryView: View{
 
 struct AddStoryOverlay: View{
     var body: some View{
-        VStack(alignment: .center){
+        ZStack(alignment: .center){
+            Button("+"){}
+            .frame(width: 20, height: 20, alignment: .center)
+            .foregroundColor(.white)
+            .background(Color.blue)
+            .clipShape(Circle())
+            .padding(5)
+            .offset(x: 0, y: -25)
             Text("Create Story")
                 .font(.system(size: 12).weight(.medium))
                 .padding(5)
