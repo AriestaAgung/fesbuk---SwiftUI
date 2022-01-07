@@ -24,6 +24,7 @@ struct ContentView: View {
         navbarAppearance.largeTitleTextAttributes = [.foregroundColor: UIColor.systemBlue]
         navbarAppearance.titleTextAttributes = [.foregroundColor: UIColor.systemBlue]
     }
+    
     let posts : [Post] = [
         .init(id: 0, user: "User 01", post: "I have taken this photo, this view is so good for stres relieving", imageName: "33Icu2TZ3-Q", profileImage: "aA1k04PswEw"),
         .init(id: 1, user: "Wulan", post: "Lorem ipsum dolor set amet, well this is an example of post that have a long text in it.", imageName: "MBJMvBxhJYo", profileImage: "aA1k04PswEw"),
@@ -36,36 +37,85 @@ struct ContentView: View {
         .init(id: 2, users: "User 03", image: "JWj7wd37ZoM"),
         .init(id: 3, users: "User 04", image: "UbW4o7qRhVk"),
         .init(id: 4, users: "User 05", image: "u-qo8AmIKbY"),
-        .init(id: 4, users: "User 05", image: "u-qo8AmIKbY")
+        .init(id: 5, users: "User 06", image: "u-qo8AmIKbY")
     ]
     
     var body: some View {
-        
         NavigationView{
             List{
-                //Make Status Rows
-                MakePost()
-                //Story Rows
-                VStack (alignment: .leading){
-                    Text("Stories").font(.headline)
-                    ScrollView(.horizontal, showsIndicators: false){
-                        HStack{
-                            ForEach(stories, id: \.id){Story in
-                                StoryView(story: Story)
+                Section {
+                    //Make Status Rows
+                    MakePost()
+                }
+                Section{
+                    //Story Rows
+                    VStack (alignment: .leading){
+                        ScrollView(.horizontal, showsIndicators: false){
+                            HStack{
+                                AddStoryView()
+                                ForEach(stories, id: \.id){Story in
+                                    StoryView(story: Story)
+                                }
                             }
                         }
                     }
-                }.frame(height:150)
+//                    .padding(5)
+                    .frame(height:150)
+                    
+                }
                 
                 //post Rows
                 ForEach(posts, id: \.id){ post in
                     postRow(post: post)
                 }
+                
                 //Like Comment Share Rows
                 
             }
-            .navigationBarTitle(Text("fesbuk"))
+            
+        }.navigationBarTitle("fesbuk")
+    }
+}
+
+struct AddStoryView: View{
+    var body: some View{
+        ZStack{
+            Image("J6mySj3wntg")
+                .renderingMode(.original)
+                .frame(width: 80, height: 140)
+                .clipShape(RoundedRectangle(cornerSize: CGSize(width: 10, height: 10)))
+                .overlay(AddStoryOverlay(), alignment: .bottom)
         }
+        .overlay(RoundedRectangle(cornerRadius: 10).stroke(lineWidth: 0.4))
+        .frame(alignment: .bottom)
+    }
+}
+
+struct AddStoryOverlay: View{
+    var body: some View{
+        VStack(alignment: .center){
+            Text("Create Story")
+                .font(.system(size: 12).weight(.medium))
+                .padding(5)
+                .fixedSize(horizontal: false, vertical: true)
+                .multilineTextAlignment(.center)
+        }
+        .frame(width: 80, height: 140/3)
+        .background(Color.white)
+    }
+}
+
+
+
+struct HeaderView: View{
+    var body: some View{
+        HStack(spacing: 0){
+            Text("fesbuk")
+                .foregroundColor(.blue)
+                .frame(height: 15, alignment: .topLeading)
+            
+        }
+        .frame(height: 15)
     }
 }
 
@@ -152,18 +202,42 @@ struct StoryView : View {
     let story : Story
     var body: some View {
         
-        VStack (alignment: .center){
+        HStack (alignment: .center){
             Image(story.image)
                 .renderingMode(.original)
-                .frame(width: 80, height: 80)
-                //                        .clipped()
-                .overlay(Circle().stroke(Color.blue, lineWidth: 8))
-                .clipShape(Circle())
-            Text(story.users)
+                .frame(width: 80, height: 140)
+                .clipped()
+            //                .overlay(RoundedRectangle(cornerSize: CGSize(width: 15, height: 15)).stroke(Color.blue, lineWidth: 8))
+                .overlay(StoryNameOverlay(story: story), alignment: .bottomLeading)
+                .overlay(StoryProfilePictureOverlay(story: story), alignment: .topLeading)
+                .clipShape(RoundedRectangle(cornerSize: CGSize(width: 10, height: 10)))
         }
     }
 }
 
+struct StoryNameOverlay: View{
+    let story: Story
+    var body: some View{
+        ZStack{
+            Text(story.users)
+                .foregroundColor(.white)
+                .font(.system(size: 12).weight(.semibold))
+        }.padding(8)
+    }
+}
+
+struct StoryProfilePictureOverlay: View{
+    let story: Story
+    var body: some View{
+        ZStack{
+            Image(story.image)
+                .renderingMode(.original)
+                .overlay(Circle().stroke(Color.blue, lineWidth: 8))
+                .frame(width: 5, height: 5)
+                .clipShape(Circle())
+        }
+    }
+}
 
 struct postRow : View{
     let post : Post
@@ -188,7 +262,6 @@ struct postRow : View{
                 .padding(.trailing, -16)
             AdditionalStatusView()
         }.padding(.bottom, 16).padding(.top, 16)
-        
     }
 }
 

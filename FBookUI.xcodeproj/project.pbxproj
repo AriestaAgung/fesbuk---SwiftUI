@@ -13,6 +13,7 @@
 		EB292D42249FF9080005A0F2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB292D41249FF9080005A0F2 /* Assets.xcassets */; };
 		EB292D45249FF9080005A0F2 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB292D44249FF9080005A0F2 /* Preview Assets.xcassets */; };
 		EB292D48249FF9080005A0F2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB292D46249FF9080005A0F2 /* LaunchScreen.storyboard */; };
+		EB6EA61F2787EA2000E66AF5 /* View+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6EA61E2787EA1E00E66AF5 /* View+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		EB292D44249FF9080005A0F2 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		EB292D47249FF9080005A0F2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EB292D49249FF9080005A0F2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EB6EA61E2787EA1E00E66AF5 /* View+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 				EB292D46249FF9080005A0F2 /* LaunchScreen.storyboard */,
 				EB292D49249FF9080005A0F2 /* Info.plist */,
 				EB292D43249FF9080005A0F2 /* Preview Content */,
+				EB6EA61E2787EA1E00E66AF5 /* View+Extension.swift */,
 			);
 			path = FBookUI;
 			sourceTree = "<group>";
@@ -102,7 +105,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1150;
-				LastUpgradeCheck = 1150;
+				LastUpgradeCheck = 1320;
 				ORGANIZATIONNAME = "Devata Creative Digital";
 				TargetAttributes = {
 					EB292D37249FF8ED0005A0F2 = {
@@ -148,6 +151,7 @@
 			files = (
 				EB292D3C249FF8ED0005A0F2 /* AppDelegate.swift in Sources */,
 				EB292D3E249FF8ED0005A0F2 /* SceneDelegate.swift in Sources */,
+				EB6EA61F2787EA2000E66AF5 /* View+Extension.swift in Sources */,
 				EB292D40249FF8ED0005A0F2 /* ContentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -192,6 +196,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -252,6 +257,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -286,6 +292,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"FBookUI/Preview Content\"";
+				DEVELOPMENT_TEAM = R2D4D7YLB2;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = FBookUI/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -305,6 +312,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"FBookUI/Preview Content\"";
+				DEVELOPMENT_TEAM = R2D4D7YLB2;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = FBookUI/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
